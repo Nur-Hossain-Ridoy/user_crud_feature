@@ -1,0 +1,31 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">New User</li>
+    </ol>
+</nav>
+
+
+<form method="post" action="/adduser" enctype="application/x-www-form-urlencoded" class="row g-3 needs-validation">
+    <div class="form-floating">
+        <input class="form-control" name="first_name" placeholder="First Name">
+        <label>First Name</label>
+    </div>
+
+    <div class="form-floating">
+        <input class="form-control" name="last_name" placeholder="Last Name">
+        <label>Last Name</label>
+    </div>
+
+    <div class="form-floating">
+        <input type="email" class="form-control" name="email" placeholder="Email">
+        <label>Email</label>
+    </div>
+
+    <div class="form-floating">
+        <input type="number" class="form-control" name="phone_number" placeholder="phone number">
+        <label>Phone Number</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
