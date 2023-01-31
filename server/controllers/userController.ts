@@ -37,7 +37,41 @@ const createUser = (req: Request, res: Response) => {
     , (err, data) => {
         console.log(err);
         
-        if (!err) return res.render('add-user')
+        if (!err) return res.render('add-user', { alert: 'User added Successfully'})
+    })
+}
+
+const editView = (req: Request, res: Response) => {
+    
+    pool.query(`SELECT * FROM user WHERE id = '${req.params.id}'`, (err, data) => {
+        if (!err) res.render('edit-user', { data })
+    })
+}
+
+const updateUser = (req: Request, res: Response) => {
+    
+    const {
+        first_name,
+        last_name,
+        email,
+        phone_number
+    } = req.body    
+    
+    pool.query(`UPDATE user SET first_name='${first_name}', last_name='${last_name}', email='${email}',
+    phone_number = ${phone_number} WHERE id = '${req.params.id}' `
+    , (err, data) => {    
+        console.log(err)        
+        if (!err) res.redirect('/')
+    })
+}
+
+const deleteUser = (req: Request, res: Response) => { 
+    console.log('i am hit');
+    
+    pool.query(`DELETE FROM user WHERE id = ${req.params.id}`
+    , (err, data) => {    
+        console.log(err)        
+        if (!err) res.redirect('/')
     })
 }
 
@@ -47,4 +81,7 @@ export {
     searchUser,
     userForm,
     createUser,
+    updateUser,
+    editView,
+    deleteUser
 }

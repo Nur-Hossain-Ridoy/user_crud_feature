@@ -30,8 +30,8 @@
             <td>{{phone_number}}</td>
             <td>
                 <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-eye-fill ml-8"></i>view</a>
-                <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil-square"></i>Edit</a>
-                <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-x-octagon"></i>Delete</a>
+                <a href="/edit/{{this.id}}" type="button"  class="btn btn-light btn-small"><i class="bi bi-pencil-square"></i>Edit</a>
+                <a href="/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-x-octagon"></i>Delete</a>
             </td>
         </tr>
         {{/each}}
